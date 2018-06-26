@@ -34,7 +34,7 @@
     "better-scroll": "^1.6.2",
     {{/isMobile}}
     {{#vuex}}
-    "vuex": "^2.3.1",
+    "vuex": "^2.3.1"
     {{/vuex}}
   },
   "devDependencies": {
