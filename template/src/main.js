@@ -11,7 +11,9 @@ import router from './router'
 {{#vuex}}
 import store from './store'
 {{/vuex}}
-
+{{#isMobile}}
+import FastClick from 'fastclick'
+{{/isMobile}}
 
 // false 以阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
@@ -19,6 +21,8 @@ Vue.config.productionTip = false
 Vue.config.devtools = process.env.NODE_ENV === 'development'
 
 {{#isMobile}}
+import FastClick from 'fastclick'
+
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function () {
     FastClick.attach(document.body)
