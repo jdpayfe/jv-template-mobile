@@ -1,4 +1,4 @@
-
+// eslint-disable
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val)
   if (index > -1) {
@@ -62,8 +62,8 @@ export function getUrlString(name) {
  * @returns {null}
  */
 export function getAllUrlParams(url) {
-  var url = url ? url : window.location.href
-  var params = url.indexOf("#") > -1 ? url.substring(url.indexOf("?"), url.indexOf("#")) : url.substring(url.indexOf("?"))
+  let url = url ? url : window.location.href
+  let params = url.indexOf("#") > -1 ? url.substring(url.indexOf("?"), url.indexOf("#")) : url.substring(url.indexOf("?"))
   return params
 }
 
@@ -81,7 +81,6 @@ export function getStorage(name) {
     return false
   }
 }
-
 
 /*
  表单验证正则

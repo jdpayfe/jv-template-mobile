@@ -21,8 +21,6 @@ Vue.config.productionTip = false
 Vue.config.devtools = process.env.NODE_ENV === 'development'
 
 {{#isMobile}}
-import FastClick from 'fastclick'
-
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function () {
     FastClick.attach(document.body)

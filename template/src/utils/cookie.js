@@ -1,12 +1,3 @@
-/**
- * @Author: Chen Ming <Amour>
- * @Date:   2017-11-21T14:42:42+08:00
- * @Email:  amourfrei@163.com
- * @Last modified by:   amour
- * @Last modified time: 2017-12-11T09:04:08+08:00
- */
-
-
 
 import _verify from './verify'
 
@@ -38,7 +29,8 @@ export default new class Cookie {
   set(key, value, options) {
     options = _verify.isObject(options) ? options : {expires: options}
     //session cookie will be set, if expires.
-    let expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''),
+    let expires, path, domain, secure;
+    expires = options.expires !== undefined ? options.expires : (this.defaults.expires || ''),
       expiresType = typeof(expires)
     if (expiresType === 'string' && expires !== '') {
       expires = new Date(expires)
@@ -49,13 +41,13 @@ export default new class Cookie {
       expires = ';expires=' + expires.toGMTString()
     }
     //set path
-    let path = options.path || this.defaults.path
+    path = options.path || this.defaults.path
     path = path ? ';path=' + path : ''
     //set domain
-    let domain = options.domain || this.defaults.domain
+    domain = options.domain || this.defaults.domain
     domain = domain ? ';domain=' + domain : ''
     //set secure
-    let secure = options.secure || this.defaults.secure ? ';secure' : ''
+    secure = options.secure || this.defaults.secure ? ';secure' : ''
     if (options.secure === false) secure = ''
     //set cookie
     document.cookie = encodeURIComponent(key) + '=' + encodeURIComponent(JSON.stringify(value)) + expires + path + domain + secure
@@ -73,15 +65,17 @@ export default new class Cookie {
 
 
   all() {
-    let cookie = document.cookie
+    let cookieArr, cookie;
+    cookie = document.cookie
     if (cookie === '') return {}
-    let cookieArr = cookie.split('; '),
+    cookieArr = cookie.split('; '),
       result = {}
     for (let i = 0, l = cookieArr.length; i < l; i++) {
-      let item = cookieArr[i].split('=');
+      let item, key, value;
+      item = cookieArr[i].split('=');
       //arr.shift()
-      let key = decodeURIComponent(item.shift())
-      let value = decodeURIComponent(item.join(''))
+      key = decodeURIComponent(item.shift())
+      value = decodeURIComponent(item.join(''))
       result[key] = value
     }
     return result
