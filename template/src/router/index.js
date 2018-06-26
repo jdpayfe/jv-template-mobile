@@ -30,7 +30,7 @@ const router = new VueRouter({
  * 路由开始之前的操作
  */
 
-router.beforeEach((to, from, next) = > {
+router.beforeEach((to, from, next) => {
   document.title = to.meta.title
   document.querySelector('title').innerText = to.meta.title
   next()

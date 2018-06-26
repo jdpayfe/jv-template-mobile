@@ -19,10 +19,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
-  output: {
-    filename: utils.assetsPath('js/[name].js'),
-    chunkFilename: utils.assetsPath('js/[name].js')
-  },
+  // output: {
+  //   filename: utils.assetsPath('js/[name].js'),
+  //   chunkFilename: utils.assetsPath('js/[name].js')
+  // },
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
