@@ -74,6 +74,11 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
+      vuex: {
+          when: 'isNotTest',
+          type: 'confirm',
+          message: 'Install vuex?',
+      },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
@@ -156,6 +161,11 @@ module.exports = {
         },
       ],
     },
+      isMobile:{
+          when: 'isNotTest',
+          "type": "confirm",
+          "message": "is Mobile project?"
+      },
   },
   filters: {
     '.eslintrc.js': 'lint',
@@ -170,6 +180,8 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/store/**/*': 'vuex',
+    'src/assets/css/*': 'isMobile',
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

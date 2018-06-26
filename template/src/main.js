@@ -8,14 +8,32 @@ import App from './App'
 import router from './router'
 {{/router}}
 
+{{#vuex}}
+import store from './store'
+{{/vuex}}
+
+
+// false 以阻止 vue 在启动时生成生产提示
 Vue.config.productionTip = false
+// 是否允许 vue-devtools 检查代码
+Vue.config.devtools = process.env.NODE_ENV === 'development'
+
+{{#isMobile}}
+if ('addEventListener' in document) {
+  document.addEventListener('DOMContentLoaded', function () {
+    FastClick.attach(document.body)
+  })
+}
+{{/isMobile}}
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   {{#router}}
   router,
   {{/router}}
+  {{#vuex}}
+  store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}
@@ -23,4 +41,4 @@ new Vue({
   components: { App },
   template: '<App/>'
   {{/if_eq}}
-})
+}).$mount('container');
