@@ -1,4 +1,4 @@
-// eslint-disable
+/* eslint-disable */
 Array.prototype.remove = function (val) {
   var index = this.indexOf(val)
   if (index > -1) {

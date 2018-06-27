@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import _verify from './verify'
 
 export default new class Cookie {

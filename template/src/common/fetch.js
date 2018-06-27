@@ -55,7 +55,8 @@ export default function fetch (url = '', data = {}, method = 'get') {
         } else {
           console.log("数据请求超时")
           /* eslint-disable prefer-promise-reject-errors */
-          reject({ type: 'canceled' })
+          reject({type: 'canceled'})
+        }
       })
   })
 }
