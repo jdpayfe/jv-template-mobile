@@ -47,17 +47,15 @@ export default function fetch (url = '', data = {}, method = 'get') {
       .catch((error) => {
         //请求失败时,根据业务判断状态
         if (error.response) {
-          // let resError = error.response
           let resCode = error.status
           let resMsg = error.message
           console.log('请求数据失败！')
-           // eslint-disable-next-line // 下一行跳过检查
+          /* eslint-disable prefer-promise-reject-errors */
           reject({ code: resCode, returnMessage: resMsg })
         } else {
           console.log("数据请求超时")
-          // eslint-disable-next-line // 下一行跳过检查
+          /* eslint-disable prefer-promise-reject-errors */
           reject({ type: 'canceled' })
-        }
       })
   })
 }
