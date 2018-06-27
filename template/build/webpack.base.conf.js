@@ -37,7 +37,12 @@ module.exports = {
       {{#if_eq build "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
-      '@': resolve('src'),
+      'src': resolve('src'),
+      'assets': resolve('src/assets'),
+      'common': resolve('src/common'),
+      'store': resolve('src/store'),
+      'pages': resolve('src/pages'),
+      'components': resolve('src/components'),
     }
   },
   module: {
