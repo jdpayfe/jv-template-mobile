@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const Home = r => require.ensure([], () => r(require('pages/home')), 'Home')
+const Home = r => require.ensure([], () => r(require('../pages/home')), 'Home')
 
 Vue.use(VueRouter)
 
