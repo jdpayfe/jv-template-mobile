@@ -19,9 +19,11 @@ export default {
       name: "home..."
     }
   },
+  {{#router}}
   components: {
     HelloWorld
-  }
+  },
+  {{/router}}
 }
 
 </script>
