@@ -1,4 +1,6 @@
-# 一个基础的Vue项目模板
+# jv-template-mobile
+customer vue template for mobile.
+
 
 > ### 一、介绍
 
