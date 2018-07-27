@@ -3,3 +3,4 @@ node_modules
 docs/_book
 test/
 .idea/
+package-lock.json
