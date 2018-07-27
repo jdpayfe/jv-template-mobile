@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+@mixin flex-shrink($val) {
+  -webkit-box-flex: $val;
+  -webkit-flex-shrink: $val;
+  -ms-flex: 0 $val auto;
+  flex-shrink: $val;
+}
+
+@mixin border-top($color, $left: 0, $width: 1px, $style: solid) {
+  content: '';
+  position: absolute;
+  left: $left;
+  top: 0;
+  right: 0;
+  height: $width;
+  border-top: $width $style $color;
+  @if $width == 1px {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+}
+@mixin border-bottom($color, $left: 0, $width: 1px, $style: solid) {
+  content: '';
+  position: absolute;
+  left: $left;
+  bottom: 0;
+  right: 0;
+  height: $width;
+  border-top: $width $style $color;
+  display: block;
+  @if $width == 1px {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    pointer-events: none;
+  }
+}
+@mixin border-left($color, $left: 0, $width: 1px, $style: solid) {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: $width;
+  height: 100%;
+  display: block;
+  border-left: $width $style $color;
+  @if $width == 1px {
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+}
+@mixin border-right($color, $left: 0, $width: 1px, $style: solid) {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: $width;
+  height: 100%;
+  border: $width $style $color;
+  @if $width == 1px {
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    pointer-events: none;
+  }
+}
